@@ -18,8 +18,8 @@ const settings = {
 
 (async () => {
     const serverDir = await question("Search Directory? ");
-    console.log("Server Directory: " + serverDir)
-    console.log("Searching...")
+    console.log("Server Directory: " + serverDir);
+    console.log("Searching...");
 
     try {
         const files = getFilesFromDir(serverDir, [".js", ".lua"]);
@@ -36,15 +36,15 @@ const settings = {
                         if (matches) {
                             let common = false;
                             for (commonParam of settings.params) {
-                                if (matches[0].includes(commonParam)) common = true
+                                if (matches[0].includes(commonParam)) common = true;
                             };
 
-                            if (!itemsFound.map((e) => e.lineTxt).includes(matches[0])) itemsFound.push({ lineNum: i + 1, common: common, lineTxt: matches[0] })
-                        }
+                            if (!itemsFound.map((e) => e.lineTxt).includes(matches[0])) itemsFound.push({ lineNum: i + 1, common: common, lineTxt: matches[0] });
+                        };
                     };
                 };
             };
-        }
+        };
         
 
         console.log(`\n\n${itemsFound.length} item's were found!`);
@@ -58,9 +58,9 @@ const settings = {
             console.log(`${item.lineTxt} was found on line ${item.lineNum}`);
         };
         await question("Press any key to exit... ");
-        process.exit()
+        process.exit();
     } catch (error) {
-        console.log(error)
+        console.log(error);
     }
 })();
 
